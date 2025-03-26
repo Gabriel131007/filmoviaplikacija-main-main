@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <link rel='stylesheet' href='/stylesheets/output.css' />
+  </head>
+
+<body class="min-h-screen flex flex-col">
+<header class="bg-gray-800 text-white p-4">
+  <div class="mx-auto flex flex-wrap items-center">
+
+    
+    <a href="/"><h1 class="text-xl font-bold">Aplikacija za dodavanje filmova</h1></a>
+  
+   
+    <div class="flex-1 text-right min-w-52 text-sm"> 
+      {{#unless userEmail}}
+    
+        <a class="py-2 px-4 bg-gray-700 text-white rounded-lg border border-white hover:bg-gray-500 hover:border-gray-300 transition-colors duration-300" href="/users/signin">Prijava</a>
+        
+      
+        <a class="py-2 px-4 bg-gray-700 text-white rounded-lg border border-white hover:bg-gray-500 hover:border-gray-300 transition-colors duration-300" href="/users/signup">Registracija</a>
+      {{/unless}}
+
+      {{#if userEmail}}
+        
+        <a class="py-2 px-4 bg-gray-700 text-white rounded-lg border border-white hover:bg-gray-500 hover:border-gray-300 transition-colors duration-300" href="/rooms/create">Dodaj film</a>
+        
+       
+        <a class="py-2 px-4 bg-gray-700 text-white rounded-lg border border-white hover:bg-gray-500 hover:border-gray-300 transition-colors duration-300" href="/users/signout">Odjava</a>
+      {{/if}}
+    </div>
+  </div>
+</header>
+
+<main class="flex-grow bg-gray-100 p-6">
+  <div class="container mx-auto">
+    {{{body}}}
+  </div>
+</main>
+
+<footer class="bg-gray-800 text-white p-4">
+  <div class="container mx-auto text-center">
+    <p>&copy; 2025 Filmovi. Sva prava su moja.</p>
+  </div>
+</footer>
+
+</body>
+</html>

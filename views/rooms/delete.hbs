@@ -1,0 +1,23 @@
+<div class="text-2xl mb-4 font-semibold">Brisanje filma</div>
+
+<form method="post" action="/rooms/delete" class="grid grid-cols-1 max-w-md gap-2">
+   <label for="room">Izaberi film za brisanje</label>
+   <select name="room_id" required>
+      {{#each rooms}}
+         <option value="{{id}}">{{name}}</option>
+      {{/each}}
+   </select>
+   <input type="submit" value="Obriši" class="w-full p-2 bg-red-600 text-white hover:bg-red-800 rounded cursor-pointer"/>
+</form>
+
+{{#if error_database}}
+   <p class="text-red-600">Dogodila se greška prilikom brisanja iz baze podataka!</p>
+{{/if}}
+
+{{#if error_validation}}
+   <p class="text-red-600">Molimo odaberite film za brisanje!</p>
+{{/if}}
+
+{{#if success}}
+   <p class="text-green-600">Film je uspješno obrisan!</p>
+{{/if}}
